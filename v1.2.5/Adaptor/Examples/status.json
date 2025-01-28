@@ -1,0 +1,21 @@
+{
+    "context": {
+      "domain": "nic2004:60232",
+      "country": "IND",
+      "city": "std:080",
+      "action": "status",
+      "core_version": "1.2.5",
+      "bap_id": "lbnp.com",
+      "bap_uri": "https://lbnp.com/ondc",
+      "bpp_id": "lsp.com",
+      "bpp_uri": "https://lsp.com/ondc",
+      "transaction_id": "T1",
+      "message_id": "M7",
+      "timestamp": "2024-11-20T00:00:00.000Z",
+      "ttl": "PT30S"
+    },
+    "message": {
+      "order_id": "O2"
+    }
+  }
+  

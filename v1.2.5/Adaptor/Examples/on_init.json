@@ -1,0 +1,323 @@
+{
+  "context": {
+    "domain": "nic2004:60232",
+    "country": "IND",
+    "city": "std:080",
+    "action": "on_init",
+    "core_version": "1.2.5",
+    "bap_id": "lbnp.com",
+    "bap_uri": "https://lbnp.com/ondc",
+    "bpp_id": "lsp.com",
+    "bpp_uri": "https://lsp.com/ondc",
+    "transaction_id": "T1",
+    "message_id": "M2",
+    "timestamp": "2024-11-20T21:30:30.000Z"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "I1",
+          "fulfillment_id": "1",
+          "fulfillment_ids": ["F1", "F2", "F3"]
+        }
+      ],
+      "fulfillments": [
+        {
+          "id": "1",
+          "type": "Delivery",
+          "start": {
+            "location": {
+              "id": "S1",
+              "gps": "12.4535,77.9283",
+              "address": {
+                "name": "Store name",
+                "building": "House or building name",
+                "locality": "Locality",
+                "city": "Bengaluru",
+                "state": "Karnataka",
+                "country": "India",
+                "area_code": "560041"
+              }
+            },
+            "contact": {
+              "phone": "9886098860",
+              "email": "abcd.efgh@gmail.com",
+              "tags": {
+                "code": "masked_contact",
+                "list": [
+                  {
+                    "code": "type",
+                    "value": "ivr_pin"
+                  },
+                  {
+                    "code": "setup",
+                    "value": "1800180000"
+                  },
+                  {
+                    "code": "token",
+                    "value": "12345"
+                  }
+                ]
+              }
+            }
+          },
+          "end": {
+            "location": {
+              "gps": "12.453544,77.928379",
+              "address": {
+                "name": "My house #",
+                "building": "My house or building name",
+                "locality": "locality",
+                "city": "Bengaluru",
+                "state": "Karnataka",
+                "country": "India",
+                "area_code": "560076"
+              }
+            },
+            "contact": {
+              "phone": "9886098860",
+              "email": "abcd.efgh@gmail.com",
+              "tags": [
+                {
+                  "code": "masked_contact",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "ivr_without_pin"
+                    },
+                    {
+                      "code": "setup",
+                      "value": "1800180000"
+                    },
+                    {
+                      "code": "token",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "tags": [
+            {
+              "code": "rider_check",
+              "list": [
+                {
+                  "code": "inline_check_for_rider",
+                  "value": "yes"
+                }
+              ]
+            },
+            {
+              "code": "linked_provider",
+              "list": [
+                {
+                  "code": "id",
+                  "value": "P1"
+                },
+                {
+                  "code": "name",
+                  "value": "Seller1"
+                },
+                {
+                  "code": "address",
+                  "value": "shop_name,building_name,locality,city,state,pincode"
+                }
+              ]
+            },
+            {
+              "code": "fulfill_request",
+              "list": [
+                {
+                  "code": "rider_count",
+                  "value": "3"
+                },
+                {
+                  "code": "order_count",
+                  "value": "10"
+                },
+                {
+                  "code": "rate_basis",
+                  "value": "rider"
+                },
+                {
+                  "code": "motorable_distance",
+                  "value": "3.0"
+                },
+                {
+                  "code": "pickup_slot_start",
+                  "value": "2024-12-11T00:00:00.000Z"
+                },
+                {
+                  "code": "pickup_slot_end",
+                  "value": "2024-12-11T00:15:00.000Z"
+                },
+                {
+                  "code": "delivery_slot_start",
+                  "value": "2024-12-11T01:30:00.000Z"
+                },
+                {
+                  "code": "delivery_slot_end",
+                  "value": "2024-12-11T02:00:00.000Z"
+                }
+              ]
+            },
+            {
+              "code": "fulfill_response",
+              "list": [
+                {
+                  "code": "rider_count",
+                  "value": "3"
+                },
+                {
+                  "code": "order_count",
+                  "value": "10"
+                },
+                {
+                  "code": "rate_basis",
+                  "value": "rider"
+                }
+              ]
+            },
+            {
+              "code": "linked_order",
+              "list": [
+                {
+                  "code": "id",
+                  "value": "RO1"
+                },
+                {
+                  "code": "currency",
+                  "value": "INR"
+                },
+                {
+                  "code": "declared_value",
+                  "value": "300.0"
+                },
+                {
+                  "code": "weight_unit",
+                  "value": "kilogram"
+                },
+                {
+                  "code": "weight_value",
+                  "value": "3.0"
+                },
+                {
+                  "code": "dim_unit",
+                  "value": "centimeter"
+                },
+                {
+                  "code": "length",
+                  "value": "1.0"
+                },
+                {
+                  "code": "breadth",
+                  "value": "1.0"
+                },
+                {
+                  "code": "height",
+                  "value": "1.0"
+                }
+              ]
+            },
+            {
+              "code": "linked_order_item",
+              "list": [
+                {
+                  "code": "category",
+                  "value": "Grocery"
+                },
+                {
+                  "code": "name",
+                  "value": "Atta"
+                },
+                {
+                  "code": "currency",
+                  "value": "INR"
+                },
+                {
+                  "code": "value",
+                  "value": "70.0"
+                },
+                {
+                  "code": "quantity",
+                  "value": "2"
+                },
+                {
+                  "code": "weight_unit",
+                  "value": "kilogram"
+                },
+                {
+                  "code": "weight_value",
+                  "value": "1.0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "59.00"
+        },
+        "breakup": [
+          {
+            "@ondc/org/item_id": "I1",
+            "@ondc/org/title_type": "delivery",
+            "price": {
+              "currency": "INR",
+              "value": "50.00"
+            }
+          },
+          {
+            "@ondc/org/item_id": "I1",
+            "@ondc/org/title_type": "tax",
+            "price": {
+              "currency": "INR",
+              "value": "9.00"
+            }
+          }
+        ],
+        "ttl": "PT15M"
+      },
+      "payment": {
+        "@ondc/org/collection_amount": "300.00",
+        "type": "ON-FULFILLMENT",
+        "collected_by": "BPP",
+        "@ondc/org/settlement_basis": "invoicing",
+        "@ondc/org/settlement_window": "P15D",
+        "@ondc/org/settlement_details": [
+          {
+            "settlement_counterparty": "buyer-app",
+            "settlement_type": "upi",
+            "beneficiary_name": "xxxxx",
+            "upi_address": "gft@oksbi",
+            "settlement_bank_account_no": "XXXXXXXXXX",
+            "settlement_ifsc_code": "XXXXXXXXX"
+          }
+        ]
+      },
+      "tags": [
+        {
+          "code": "bpp_terms",
+          "list": [
+            {
+              "code": "static_terms",
+              "value": "https://github.com/ONDC-Official/protocol-network-extension/discussions/79"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

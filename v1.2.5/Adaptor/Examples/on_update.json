@@ -1,0 +1,700 @@
+{
+  "context": {
+    "domain": "nic2004:60232",
+    "country": "IND",
+    "city": "std:080",
+    "action": "on_update",
+    "core_version": "1.2.5",
+    "bap_id": "lbnp.com",
+    "bap_uri": "https://lbnp.com/ondc",
+    "bpp_id": "lsp.com",
+    "bpp_uri": "https://lsp.com/ondc",
+    "transaction_id": "T1",
+    "message_id": "M4",
+    "timestamp": "2024-11-20T22:30:30.000Z"
+  },
+  "message": {
+    "order": {
+      "id": "O2",
+      "state": "In-progress",
+      "provider": {
+        "id": "P1",
+        "locations": [
+          {
+            "id": "L1"
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "I1",
+          "fulfillment_id": "1",
+          "fulfillment_ids": ["F1", "F2", "F3"],
+          "category_id": "Same Day Delivery",
+          "descriptor": {
+            "code": "P2P"
+          },
+          "time": {
+            "label": "TAT",
+            "duration": "PT45M",
+            "timestamp": "2024-11-20"
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "59.00"
+        },
+        "breakup": [
+          {
+            "@ondc/org/item_id": "I1",
+            "@ondc/org/title_type": "delivery",
+            "price": {
+              "currency": "INR",
+              "value": "50.0"
+            }
+          },
+          {
+            "@ondc/org/item_id": "I1",
+            "@ondc/org/title_type": "tax",
+            "price": {
+              "currency": "INR",
+              "value": "9.0"
+            }
+          },
+          {
+            "@ondc/org/item_id": "I1",
+            "@ondc/org/title_type": "diff",
+            "price": {
+              "currency": "INR",
+              "value": "45.00"
+            }
+          },
+          {
+            "@ondc/org/item_id": "I1",
+            "@ondc/org/title_type": "tax_diff",
+            "price": {
+              "currency": "INR",
+              "value": "8.10"
+            }
+          }
+        ]
+      },
+      "fulfillments": [
+        {
+          "id": "1",
+          "type": "Delivery",
+          "state": {
+            "descriptor": {
+              "code": "Order-picked-up"
+            }
+          },
+          "@ondc/org/awb_no": "1227262193237777",
+          "tracking": false,
+          "start": {
+            "person": {
+              "name": "Ramu"
+            },
+            "location": {
+              "id": "S1",
+              "gps": "12.4535,77.9283",
+              "address": {
+                "name": "name",
+                "building": "My house or building name",
+                "locality": "My street name",
+                "city": "Bengaluru",
+                "state": "Karnataka",
+                "country": "India",
+                "area_code": "560041"
+              }
+            },
+            "contact": {
+              "phone": "9886098860",
+              "email": "abcd.efgh@gmail.com",
+              "tags": {
+                "code": "masked_contact",
+                "list": [
+                  {
+                    "code": "type",
+                    "value": "ivr_pin"
+                  },
+                  {
+                    "code": "setup",
+                    "value": "1800180000"
+                  },
+                  {
+                    "code": "token",
+                    "value": "12345"
+                  }
+                ]
+              }
+            },
+            "time": {
+              "duration": "PT15M",
+              "range": {
+                "start": "2024-11-20T23:45:00.000Z",
+                "end": "2024-11-20T00:00:00.000Z"
+              },
+              "timestamp": "2024-11-20T00:00:00.000Z"
+            },
+            "instructions": {
+              "code": "2",
+              "short_desc": "value of PCC",
+              "long_desc": "additional instructions for pickup",
+              "images": [
+                "link to downloadable shipping label (required for P2H2P)"
+              ],
+              "additional_desc": {
+                "content_type": "text/html",
+                "url": ".."
+              }
+            }
+          },
+          "end": {
+            "person": {
+              "name": "person_name"
+            },
+            "location": {
+              "gps": "12.453544,77.928379",
+              "address": {
+                "name": "My house or building #",
+                "building": "My house or building name",
+                "locality": "My street name",
+                "city": "Bengaluru",
+                "state": "Karnataka",
+                "country": "India",
+                "area_code": "560076"
+              }
+            },
+            "contact": {
+              "phone": "9886098860",
+              "email": "abcd.efgh@gmail.com",
+              "tags": [
+                {
+                  "code": "masked_contact",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "ivr_without_pin"
+                    },
+                    {
+                      "code": "setup",
+                      "value": "1800180000"
+                    },
+                    {
+                      "code": "token",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "instructions": {
+              "code": "3",
+              "short_desc": "value of DCC",
+              "long_desc": "additional instructions for delivery",
+              "additional_desc": {
+                "content_type": "text/html",
+                "url": ".."
+              }
+            },
+            "time": {
+              "range": {
+                "start": "2024-11-20T02:00:00.000Z",
+                "end": "2024-11-20T02:15:00.000Z"
+              }
+            }
+          },
+          "agent": {
+            "name": "person_name",
+            "phone": "9886098860"
+          },
+          "vehicle": {
+            "registration": "3LVJ945"
+          },
+          "@ondc/org/ewaybillno": "EBN1",
+          "@ondc/org/ebnexpirydate": "2024-11-20T12:00:00.000Z",
+          "tags": [
+            {
+              "code": "linked_provider",
+              "list": [
+                {
+                  "code": "id",
+                  "value": "P1"
+                },
+                {
+                  "code": "name",
+                  "value": "Seller1"
+                },
+                {
+                  "code": "address",
+                  "value": "shop_name,building_name,locality,city,state,pincode"
+                }
+              ]
+            },
+            {
+              "code": "linked_order",
+              "list": [
+                {
+                  "code": "id",
+                  "value": "RO1"
+                },
+                {
+                  "code": "currency",
+                  "value": "INR"
+                },
+                {
+                  "code": "declared_value",
+                  "value": "300.0"
+                },
+                {
+                  "code": "weight_unit",
+                  "value": "kilogram"
+                },
+                {
+                  "code": "weight_value",
+                  "value": "3.0"
+                },
+                {
+                  "code": "dim_unit",
+                  "value": "centimeter"
+                },
+                {
+                  "code": "length",
+                  "value": "1.0"
+                },
+                {
+                  "code": "breadth",
+                  "value": "1.0"
+                },
+                {
+                  "code": "height",
+                  "value": "1.0"
+                },
+                {
+                  "code": "shipment_type",
+                  "value": "box"
+                }
+              ]
+            },
+            {
+              "code": "linked_order_item",
+              "list": [
+                {
+                  "code": "category",
+                  "value": "Grocery"
+                },
+                {
+                  "code": "name",
+                  "value": "Atta"
+                },
+                {
+                  "code": "currency",
+                  "value": "INR"
+                },
+                {
+                  "code": "value",
+                  "value": "70.0"
+                },
+                {
+                  "code": "quantity",
+                  "value": "2"
+                },
+                {
+                  "code": "weight_unit",
+                  "value": "kilogram"
+                },
+                {
+                  "code": "weight_value",
+                  "value": "1.0"
+                }
+              ]
+            },
+            {
+              "code": "linked_order_item",
+              "list": [
+                {
+                  "code": "category",
+                  "value": "Grocery"
+                },
+                {
+                  "code": "name",
+                  "value": "Basmati Rice"
+                },
+                {
+                  "code": "currency",
+                  "value": "INR"
+                },
+                {
+                  "code": "value",
+                  "value": "160.0"
+                },
+                {
+                  "code": "quantity",
+                  "value": "1"
+                },
+                {
+                  "code": "weight_unit",
+                  "value": "kilogram"
+                },
+                {
+                  "code": "weight_value",
+                  "value": "1.0"
+                }
+              ]
+            },
+            {
+              "code": "shipping_label",
+              "list": [
+                {
+                  "code": "type",
+                  "value": "pdf"
+                },
+                {
+                  "code": "url",
+                  "value": "public link to pdf"
+                }
+              ]
+            },
+            {
+              "code": "fulfill_request",
+              "list": [
+                {
+                  "code": "rider_count",
+                  "value": "3"
+                },
+                {
+                  "code": "order_count",
+                  "value": "10"
+                },
+                {
+                  "code": "rate_basis",
+                  "value": "rider"
+                },
+                {
+                  "code": "motorable_distance",
+                  "value": "3.0"
+                },
+                {
+                  "code": "pickup_slot_start",
+                  "value": "2024-12-11T00:00:00.000Z"
+                },
+                {
+                  "code": "pickup_slot_end",
+                  "value": "2024-12-11T00:15:00.000Z"
+                },
+                {
+                  "code": "delivery_slot_start",
+                  "value": "2024-12-11T01:30:00.000Z"
+                },
+                {
+                  "code": "delivery_slot_end",
+                  "value": "2024-12-11T02:00:00.000Z"
+                }
+              ]
+            },
+            {
+              "code": "fulfill_response",
+              "list": [
+                {
+                  "code": "rider_count",
+                  "value": "3"
+                },
+                {
+                  "code": "order_count",
+                  "value": "10"
+                },
+                {
+                  "code": "rate_basis",
+                  "value": "rider"
+                },
+                {
+                  "code": "diff_value",
+                  "value": "1.5"
+                }
+              ]
+            },
+            {
+              "code": "rider_details",
+              "list": [
+                {
+                  "code": "name",
+                  "value": "person_name1"
+                },
+                {
+                  "code": "phone",
+                  "value": "9886098860"
+                }
+              ]
+            },
+            {
+              "code": "rider_details",
+              "list": [
+                {
+                  "code": "name",
+                  "value": "person_name2"
+                },
+                {
+                  "code": "phone",
+                  "value": "9886098860"
+                }
+              ]
+            },
+            {
+              "code": "rider_details",
+              "list": [
+                {
+                  "code": "name",
+                  "value": "person_name3"
+                },
+                {
+                  "code": "phone",
+                  "value": "9886098860"
+                }
+              ]
+            },
+            {
+              "code": "fulfillment_delay",
+              "list": [
+                {
+                  "code": "state",
+                  "value": "Order-picked-up"
+                },
+                {
+                  "code": "reason_id",
+                  "value": "004"
+                },
+                {
+                  "code": "timestamp",
+                  "value": "2024-12-02T22:00:00.000Z"
+                },
+                {
+                  "code": "attempt",
+                  "value": "yes"
+                }
+              ]
+            },
+            {
+              "code": "fulfillment_delay",
+              "list": [
+                {
+                  "code": "state",
+                  "value": "Order-delivered"
+                },
+                {
+                  "code": "reason_id",
+                  "value": "005"
+                },
+                {
+                  "code": "timestamp",
+                  "value": "2024-12-03T22:00:00.000Z"
+                },
+                {
+                  "code": "attempt",
+                  "value": "yes"
+                }
+              ]
+            },
+            {
+              "code": "fulfillment_proof",
+              "list": [
+                {
+                  "code": "state",
+                  "value": "Order-picked-up"
+                },
+                {
+                  "code": "type",
+                  "value": "webp"
+                },
+                {
+                  "code": "url",
+                  "value": "public link to webp"
+                }
+              ]
+            },
+            {
+              "code": "fulfillment_proof",
+              "list": [
+                {
+                  "code": "state",
+                  "value": "Order-delivered"
+                },
+                {
+                  "code": "type",
+                  "value": "webp"
+                },
+                {
+                  "code": "url",
+                  "value": "public link to webp"
+                }
+              ]
+            },
+            {
+              "code": "ebn",
+              "list": [
+                {
+                  "code": "id",
+                  "value": "EBN1"
+                },
+                {
+                  "code": "expiry_date",
+                  "value": "2024-06-30T12:00:00.000Z"
+                }
+              ]
+            },
+            {
+              "code": "ebn",
+              "list": [
+                {
+                  "code": "id",
+                  "value": "EBN2"
+                },
+                {
+                  "code": "expiry_date",
+                  "value": "2024-07-01T12:00:00.000Z"
+                }
+              ]
+            },
+            {
+              "code": "linked_order_diff",
+              "list": [
+                {
+                  "code": "id",
+                  "value": "RO1"
+                },
+                {
+                  "code": "weight_unit",
+                  "value": "kilogram"
+                },
+                {
+                  "code": "weight_value",
+                  "value": "3.0"
+                },
+                {
+                  "code": "dim_unit",
+                  "value": "centimeter"
+                },
+                {
+                  "code": "length",
+                  "value": "1.0"
+                },
+                {
+                  "code": "breadth",
+                  "value": "1.0"
+                },
+                {
+                  "code": "height",
+                  "value": "1.0"
+                }
+              ]
+            },
+            {
+              "code": "linked_order_diff_proof",
+              "list": [
+                {
+                  "code": "type",
+                  "value": "image"
+                },
+                {
+                  "code": "url",
+                  "value": "https://lsp.com/sorter/images1.png"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "billing": {
+        "name": "ONDC sellerNP",
+        "address": {
+          "name": "My building no",
+          "building": "My building name",
+          "locality": "My street name",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "country": "India",
+          "area_code": "560076"
+        },
+        "tax_number": "XXXXXXXXXXXXXXX",
+        "phone": "9886098860",
+        "email": "abcd.efgh@gmail.com",
+        "created_at": "2024-11-20T21:30:00.000Z",
+        "updated_at": "2024-11-20T21:30:00.000Z"
+      },
+      "payment": {
+        "@ondc/org/collection_amount": "300.00",
+        "collected_by": "BPP",
+        "type": "POST-FULFILLMENT",
+        "@ondc/org/settlement_basis": "invoicing",
+        "@ondc/org/settlement_window": "P15D",
+        "@ondc/org/settlement_details": [
+          {
+            "settlement_counterparty": "buyer-app",
+            "settlement_type": "upi",
+            "upi_address": "gft@oksbi",
+            "settlement_bank_account_no": "XXXXXXXXXX",
+            "settlement_ifsc_code": "XXXXXXXXX"
+          }
+        ]
+      },
+      "@ondc/org/linked_order": {
+        "items": [
+          {
+            "category_id": "Grocery",
+            "descriptor": {
+              "name": "Atta"
+            },
+            "quantity": {
+              "count": 2,
+              "measure": {
+                "unit": "kilogram",
+                "value": 0.5
+              }
+            },
+            "price": {
+              "currency": "INR",
+              "value": "150.00"
+            }
+          }
+        ],
+        "provider": {
+          "descriptor": {
+            "name": "Aadishwar Store"
+          },
+          "address": {
+            "name": "KHB Towers",
+            "building": "Building or House No",
+            "street": "6th Block",
+            "locality": "Koramangala",
+            "city": "Bengaluru",
+            "state": "Karnataka",
+            "area_code": "560070"
+          }
+        },
+        "order": {
+          "id": "O1",
+          "weight": {
+            "unit": "kilogram",
+            "value": 1
+          },
+          "dimensions": {
+            "length": {
+              "unit": "centimeter",
+              "value": 1
+            },
+            "breadth": {
+              "unit": "centimeter",
+              "value": 1
+            },
+            "height": {
+              "unit": "centimeter",
+              "value": 1
+            }
+          }
+        }
+      },
+      "updated_at": "2024-11-20T23:00:30.000Z"
+    }
+  }
+}

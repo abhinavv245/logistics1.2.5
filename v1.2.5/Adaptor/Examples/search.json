@@ -1,0 +1,253 @@
+{
+  "context": {
+    "domain": "nic2004:60232",
+    "country": "IND",
+    "city": "std:080",
+    "action": "search",
+    "core_version": "1.2.5",
+    "bap_id": "lbnp.com",
+    "bap_uri": "https://lbnp.com/ondc",
+    "transaction_id": "T1",
+    "message_id": "M1",
+    "timestamp": "2024-11-20T21:00:00.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "intent": {
+      "category": {
+        "id": "Immediate Delivery"
+      },
+      "item": {
+        "descriptor": {
+          "code": "P2P"
+        }
+      },
+      "provider": {
+        "time": {
+          "days": "1,2,3,4,5,6,7",
+          "schedule": {
+            "holidays": ["2023-06-29", "2023-08-15"]
+          },
+          "duration": "PT30M",
+          "range": {
+            "start": "1100",
+            "end": "2100"
+          }
+        }
+      },
+      "fulfillment": {
+        "type": "Delivery",
+        "start": {
+          "location": {
+            "id": "S1",
+            "gps": "12.4535,77.9283",
+            "address": {
+              "area_code": "560041"
+            }
+          },
+          "authorization": {
+            "type": "OTP"
+          }
+        },
+        "end": {
+          "location": {
+            "gps": "12.4535,77.9283",
+            "address": {
+              "area_code": "560001"
+            }
+          },
+          "authorization": {
+            "type": "OTP"
+          },
+          "instructions": {
+            "code": "5"
+          }
+        },
+        "tags": [
+          {
+            "code": "linked_provider",
+            "list": [
+              {
+                "code": "id",
+                "value": "P1"
+              },
+              {
+                "code": "name",
+                "value": "Seller1"
+              }
+            ]
+          },
+          {
+            "code": "linked_order",
+            "list": [
+              {
+                "code": "cod_order",
+                "value": "yes"
+              },
+
+              {
+                "code": "currency",
+                "value": "INR"
+              },
+              {
+                "code": "declared_value",
+                "value": "300.0"
+              },
+              {
+                "code": "category",
+                "value": "Grocery"
+              },
+              {
+                "code": "weight_unit",
+                "value": "kilogram"
+              },
+              {
+                "code": "weight_value",
+                "value": "3.0"
+              },
+              {
+                "code": "dim_unit",
+                "value": "centimeter"
+              },
+              {
+                "code": "length",
+                "value": "1.0"
+              },
+              {
+                "code": "breadth",
+                "value": "1.0"
+              },
+              {
+                "code": "height",
+                "value": "1.0"
+              }
+            ]
+          },
+          {
+            "code": "fulfill_request",
+            "list": [
+              {
+                "code": "rider_count",
+                "value": "3"
+              },
+              {
+                "code": "order_count",
+                "value": "10"
+              },
+              {
+                "code": "rate_basis",
+                "value": "rider"
+              },
+              {
+                "code": "motorable_distance",
+                "value": "3.0"
+              },
+              {
+                "code": "pickup_slot_start",
+                "value": "2024-12-10T00:00:00.000Z"
+              },
+              {
+                "code": "pickup_slot_end",
+                "value": "2024-12-10T00:15:00.000Z"
+              },
+              {
+                "code": "delivery_slot_start",
+                "value": "2024-12-10T01:30:00.000Z"
+              },
+              {
+                "code": "delivery_slot_end",
+                "value": "2024-12-10T02:00:00.000Z"
+              }
+            ]
+          }
+        ]
+      },
+      "payment": {
+        "type": "POST-FULFILLMENT",
+        "@ondc/org/collection_amount": "300.00"
+      },
+      "@ondc/org/payload_details": {
+        "weight": {
+          "unit": "kilogram",
+          "value": 1
+        },
+        "dimensions": {
+          "length": {
+            "unit": "centimeter",
+            "value": 1
+          },
+          "breadth": {
+            "unit": "centimeter",
+            "value": 1
+          },
+          "height": {
+            "unit": "centimeter",
+            "value": 1
+          }
+        },
+        "category": "Grocery",
+        "value": {
+          "currency": "INR",
+          "value": "300.00"
+        },
+        "dangerous_goods": false
+      },
+      "tags": [
+        {
+          "code": "lbnp_features",
+          "list": [
+            {
+              "code": "00B",
+              "value": "yes"
+            },
+            {
+              "code": "00E",
+              "value": "yes"
+            },
+            {
+              "code": "01D",
+              "value": "yes"
+            }
+          ]
+        },
+        {
+          "code": "lbnp_sla_terms",
+          "list": [
+            {
+              "code": "metric",
+              "value": "Order_Accept"
+            },
+            {
+              "code": "base_unit",
+              "value": "mins"
+            },
+            {
+              "code": "base_min",
+              "value": "0"
+            },
+            {
+              "code": "base_max",
+              "value": "2"
+            },
+            {
+              "code": "penalty_min",
+              "value": "20"
+            },
+            {
+              "code": "penalty_max",
+              "value": "29.9"
+            },
+            {
+              "code": "penalty_unit",
+              "value": "percent"
+            },
+            {
+              "code": "penalty_value",
+              "value": "0.5"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
