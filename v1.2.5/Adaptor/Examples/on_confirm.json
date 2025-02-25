@@ -138,23 +138,25 @@
             "contact": {
               "phone": "9886098860",
               "email": "abcd.efgh@gmail.com",
-              "tags": {
-                "code": "masked_contact",
-                "list": [
-                  {
-                    "code": "type",
-                    "value": "ivr_pin"
-                  },
-                  {
-                    "code": "setup",
-                    "value": "1800180000"
-                  },
-                  {
-                    "code": "token",
-                    "value": "12345"
-                  }
-                ]
-              }
+              "tags": [
+                {
+                  "code": "masked_contact",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "ivr_pin"
+                    },
+                    {
+                      "code": "setup",
+                      "value": "1800180000"
+                    },
+                    {
+                      "code": "token",
+                      "value": "12345"
+                    }
+                  ]
+                }
+              ]
             },
             "instructions": {
               "code": "2",
@@ -525,10 +527,6 @@
             {
               "code": "static_terms",
               "value": "https://github.com/ONDC-Official/protocol-network-extension/discussions/79"
-            },
-            {
-              "code": "phone",
-              "value": "9886098860"
             }
           ]
         },
@@ -575,43 +573,6 @@
             {
               "code": "penalty_value",
               "value": "0.5"
-            }
-          ]
-        },
-        {
-          "code": "lbnp_sla_terms",
-          "list": [
-            {
-              "code": "metric",
-              "value": "Order_Accept"
-            },
-            {
-              "code": "base_unit",
-              "value": "mins"
-            },
-            {
-              "code": "base_min",
-              "value": "0"
-            },
-            {
-              "code": "base_max",
-              "value": "2"
-            },
-            {
-              "code": "penalty_min",
-              "value": "30"
-            },
-            {
-              "code": "penalty_max",
-              "value": ""
-            },
-            {
-              "code": "penalty_unit",
-              "value": "percent"
-            },
-            {
-              "code": "penalty_value",
-              "value": "1"
             }
           ]
         }

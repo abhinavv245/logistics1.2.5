@@ -162,7 +162,26 @@
             },
             "contact": {
               "phone": "9886098860",
-              "email": "abcd.efgh@gmail.com"
+              "email": "abcd.efgh@gmail.com",
+              "tags": [
+                {
+                  "code": "masked_contact",
+                  "list": [
+                    {
+                      "code": "type",
+                      "value": "ivr_pin"
+                    },
+                    {
+                      "code": "setup",
+                      "value": "1800180000"
+                    },
+                    {
+                      "code": "token",
+                      "value": "12345"
+                    }
+                  ]
+                }
+              ]
             },
             "time": {
               "duration": "PT15M",

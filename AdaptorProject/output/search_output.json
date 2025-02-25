@@ -1,0 +1,80 @@
+{
+  "context": {
+    "domain": "nic2004:60232",
+    "location": {
+      "country": {
+        "code": "IND"
+      },
+      "city": {
+        "code": "std:080"
+      }
+    },
+    "action": "search",
+    "core_version": "1.2.5",
+    "bap_id": "lbnp.com",
+    "bap_uri": "https://lbnp.com/ondc",
+    "transaction_id": "T1",
+    "message_id": "M1",
+    "timestamp": "2024-11-20T21:00:00.000Z",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "intent": {
+      "fulfillment": {
+        "type": "Delivery",
+        "stops": [
+          {
+            "id": "L1",
+            "parent_stop_id": "",
+            "type": "start",
+            "location": {
+              "gps": "12.4535,77.9283",
+              "area_code": "560041"
+            },
+            "authorization": {
+              "type": "OTP"
+            }
+          },
+          {
+            "id": "L2",
+            "parent_stop_id": "L1",
+            "type": "end",
+            "location": {
+              "gps": "12.4535,77.9283",
+              "area_code": "560001"
+            },
+            "authorization": {
+              "type": "OTP"
+            },
+            "instructions": {
+              "code": "5"
+            }
+          }
+        ],
+        "stops[0]": {
+          "location": {
+            "id": "S1",
+            "gps": "12.4535,77.9283",
+            "area_code": "560041"
+          },
+          "authorization": {
+            "type": "OTP"
+          }
+        },
+        "stops[1]": {
+          "location": {
+            "gps": "12.4535,77.9283",
+            "area_code": "560001"
+          },
+          "authorization": {
+            "type": "OTP"
+          },
+          "instructions": {
+            "code": "5"
+          }
+        }
+      },
+      "provider": {}
+    }
+  }
+}

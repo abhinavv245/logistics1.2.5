@@ -1,13 +1,20 @@
-const fs = require('fs');
-const path = require('path');
-const XLSX = require('xlsx');
+const fs = require("fs");
+const path = require("path");
+const XLSX = require("xlsx");
 
 // Directory containing JSON payloads
-const jsonDirectory = '/Users/abhinavgoel/Documents/ONDC/logistics1.2.5/v1.2.5/Adaptor/Examples'; // Change this to your directory path
-const outputExcelFile = '../output.xlsx';
+const jsonDirectory =
+  "/Users/abhinavgoel/Documents/ONDC/logistics1.2.5/v1.2.5/Adaptor/Examples"; // Change this to your directory path
+const outputExcelFile = "../output.xlsx";
 
 // Function to recursively extract all nested attributes, focusing only on the first object in arrays
-function extractAttributes(obj, prefix = '', visited = new Set(), depth = 0, maxDepth = 10) {
+function extractAttributes(
+  obj,
+  prefix = "",
+  visited = new Set(),
+  depth = 0,
+  maxDepth = 10
+) {
   const attributes = [];
 
   // Stop recursion if depth exceeds maxDepth
@@ -17,7 +24,7 @@ function extractAttributes(obj, prefix = '', visited = new Set(), depth = 0, max
   }
 
   // Handle null or non-object values
-  if (!obj || typeof obj !== 'object') return attributes;
+  if (!obj || typeof obj !== "object") return attributes;
 
   // Prevent circular references
   if (visited.has(obj)) {
@@ -32,17 +39,51 @@ function extractAttributes(obj, prefix = '', visited = new Set(), depth = 0, max
     const value = obj[key];
     const currentKey = prefix ? `${prefix}.${key}` : key;
 
-    if (Array.isArray(value)) {
-      if (value.length > 0 && typeof value[0] === 'object') {
-        // Process only the first object in the array
-        attributes.push(...extractAttributes(value[0], `${currentKey}`, visited, depth + 1, maxDepth));
+    // Special handling for 'tags' array
+    if (key === "tags" && Array.isArray(value)) {
+      value.forEach((item) => {
+        if (item.list && Array.isArray(item.list)) {
+          item.list.forEach((listItem) => {
+            if (listItem.code) {
+              attributes.push(
+                `${currentKey}.${item.code}.list.${listItem.code}`
+              ); // For 'tags.lbnp_features.list.00B', etc.
+            }
+          });
+        }
+        // // Recurse for objects inside the list of tags
+        // attributes.push(
+        //   ...extractAttributes(
+        //     item,
+        //     `${currentKey}.${item.code}`,
+        //     visited,
+        //     depth + 1,
+        //     maxDepth
+        //   )
+        // );
+      });
+    } else if (Array.isArray(value)) {
+      // Handle normal arrays (without special treatment)
+      if (value.length > 0 && typeof value[0] === "object") {
+        // Recurse for nested objects inside the array, just like the 'tags' special case
+        attributes.push(
+          ...extractAttributes(
+            value[0],
+            `${currentKey}`,
+            visited,
+            depth + 1,
+            maxDepth
+          )
+        );
       } else {
         // Treat array as a single attribute if it's not an array of objects
         attributes.push(currentKey);
       }
-    } else if (typeof value === 'object' && value !== null) {
+    } else if (typeof value === "object" && value !== null) {
       // Recurse for nested objects
-      attributes.push(...extractAttributes(value, currentKey, visited, depth + 1, maxDepth));
+      attributes.push(
+        ...extractAttributes(value, currentKey, visited, depth + 1, maxDepth)
+      );
     } else {
       // For primitives, add the key path
       attributes.push(currentKey);
@@ -57,13 +98,15 @@ function extractAttributes(obj, prefix = '', visited = new Set(), depth = 0, max
 
 // Main function to process JSON files and create Excel
 async function generateExcel() {
-  console.log('Starting Excel generation...');
+  console.log("Starting Excel generation...");
   const workbook = XLSX.utils.book_new();
 
   try {
     // Read all JSON files in the directory
     console.log(`Reading JSON files from directory: ${jsonDirectory}`);
-    const files = fs.readdirSync(jsonDirectory).filter(file => file.endsWith('.json'));
+    const files = fs
+      .readdirSync(jsonDirectory)
+      .filter((file) => file.endsWith(".json"));
 
     console.log(`Found ${files.length} JSON files:`, files);
 
@@ -72,18 +115,21 @@ async function generateExcel() {
       console.log(`Processing file: ${filePath}`);
 
       // Read and parse the JSON file
-      const fileContent = fs.readFileSync(filePath, 'utf8');
+      const fileContent = fs.readFileSync(filePath, "utf8");
       const jsonData = JSON.parse(fileContent);
 
       // Extract attributes from JSON
       const attributes = extractAttributes(jsonData);
 
       // Prepare data for Excel (add column header)
-      const sheetData = [['Attribute (1.2.5)','Attribute (2.0)'], ...attributes.map(attr => [attr])];
+      const sheetData = [
+        ["Attribute (1.2.5)", "Attribute (2.0)"],
+        ...attributes.map((attr) => [attr]),
+      ];
 
       // Create worksheet and add to workbook
       const worksheet = XLSX.utils.aoa_to_sheet(sheetData);
-      const sheetName = path.basename(file, '.json'); // Use filename (without extension) as sheet name
+      const sheetName = path.basename(file, ".json"); // Use filename (without extension) as sheet name
       XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
     }
 
@@ -92,9 +138,9 @@ async function generateExcel() {
     XLSX.writeFile(workbook, outputExcelFile);
     console.log(`Excel file generated successfully: ${outputExcelFile}`);
   } catch (err) {
-    console.error('Error during Excel generation:', err);
+    console.error("Error during Excel generation:", err);
   }
 }
 
 // Run the script
-generateExcel().catch(err => console.error('Unhandled error:', err));
+generateExcel().catch((err) => console.error("Unhandled error:", err));

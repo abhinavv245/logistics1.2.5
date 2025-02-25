@@ -162,6 +162,7 @@
           }
         ]
       },
+
       "payment": {
         "type": "POST-FULFILLMENT",
         "@ondc/org/collection_amount": "300.00"
